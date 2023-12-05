@@ -68,7 +68,7 @@ class Game():
 
     def score_guess(self, guess):
         """Score the agent's guess, per Word Peak rules. Returns a 5-element
-        list of values in the range [-0.5, 0.0, 0.5], where:
+        list of values in the range `[-0.5, 0.0, 0.5]`, where:
 
             -0.5: The guess letter is "below" the word letter
             0.0: The guess letter is correct
@@ -92,9 +92,9 @@ class Game():
 
         for i, c in enumerate(self.word):
             if c < guess[i]:
-                rtn[i] = -0.5
-            elif c > guess[i]:
                 rtn[i] = 0.5
+            elif c > guess[i]:
+                rtn[i] = -0.5
 
         # If this guess is correct, move the object to a not-playing state:
         if sum(map(abs, rtn)) == 0:
